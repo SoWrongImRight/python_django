@@ -1,0 +1,18 @@
+body{
+    background: url(https://tr1.cbsistatic.com/hub/i/r/2019/04/22/4d381966-1b3d-454e-9767-17343536a7f4/thumbnail/768x432/0f6e55b857b35c4af801351474788786/20190418linuxdesktopsjack.jpg);
+    background-repeat: no-repeat;
+}
+div{
+    background-color: blue;
+    border-color: orange;
+    border-width: 5px;
+    border-style: double;
+}
+p{
+    color: yellow;
+
+}
+span{
+    background: red;
+    color: black;
+}
