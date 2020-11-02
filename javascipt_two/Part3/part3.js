@@ -44,6 +44,7 @@ function removeName(name){
 }
 
 function displayRoster() {
-    studentRoster.forEach(console.log);
+    // studentRoster.forEach(console.log);
+    console.log(studentRoster);
     main();
 }
