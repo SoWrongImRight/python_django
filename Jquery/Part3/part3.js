@@ -22,7 +22,7 @@ function changeColor(rowIndex,colIndex,color){
 }
 
 function returnColor(rowIndex,colIndex){
-    return.table.eq(rowIndex).find('td').eq(colIndex).find('button').css('background-color');
+    return table.eq(rowIndex).find('td').eq(colIndex).find('button').css('background-color');
 }
 
 function checkBottom(colIndex){
@@ -36,7 +36,7 @@ function checkBottom(colIndex){
 }
 
 function colorMatchCheck(one,two,three,four){
-    return (one === two && one === three && one === four && one !== 'rgb(128,128,128' && one !== undefined);
+    return (one === two && one === three && one === four && one !== 'rgb(128,128,128)' && one !== undefined);
 }
 
 // Check for Horizontal Wins
@@ -88,6 +88,35 @@ function horizontalWinCheck() {
     }
   }
 
+  // start with player 1
 var currentPlayer = 1;
 var currentName = player1;
 var currentColor = player1Color;
+
+$('h3').text(player1+" it is your turn, pick a columnt to drop in.")
+
+$('.board button').on('click', function(){
+
+  var col = $(this).closest('td').index();
+
+  var bottomAvail = checkBottom(col);
+
+  changeColor(bottomAvail,col,currentColor);
+
+  if (horizontalWinCheck() || verticalWinCheck() || diagonalWinCheck()){
+    $('h1').text(currentName+" You have won the game!");
+    $('h3').fadeOut('fast');
+    $('h2').fadeOut('fast');
+    }
+    
+    currentPlayer = currentPlayer * -1;
+    if (currentPlayer === 1) {
+        currentName = player1;
+        $('h3').text(currentName+" it is your turn");
+        currentColor = player1Color;
+    }else {
+        currentName = player2;
+        $('h3').text(currentName +" it is your turn.");
+        currentColor = player2Color;
+    }
+})
