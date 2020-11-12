@@ -1,12 +1,15 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from appTwo.models import User
 
 # Create your views here.
 def index(request):
-   return HttpResponse("<em>My second project</em>")
+   return render(request, 'appTwo/index.html')
 
 
 
-def help(request):
-    help_dict = {'help_insert':'This is the Help Page'}
-    return render(request, 'appTwo/appTwo.html',context=help_dict)
+def users(request):
+
+    user_list = User.objects.order_by('first_name')
+    user_dict = {"users":user_list}
+    return render(request,'appTwo/users.html',context=user_dict)
