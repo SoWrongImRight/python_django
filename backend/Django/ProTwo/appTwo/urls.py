@@ -1,6 +1,7 @@
 from django.urls import path
-from first_app import views
+from appTwo import views
 
 urlpatterns = [
-    path('',views.index,name='index')
+#    path('',views.index,name='index'),
+    path('help', views.help,name='help')
 ]
