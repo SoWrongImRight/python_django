@@ -13,8 +13,8 @@ fake = Faker()
 
 def populate(n=10):
     for entry in range(n):
-        fake_fname = fake.name()
-        fake_lname = fake.name()
+        fake_fname = fake.first_name()
+        fake_lname = fake.last_name()
         fake_mail = fake.email()
 
         usergen = User.objects.get_or_create(fname=fake_fname,lname=fake_lname,mail=fake_mail)[0]

@@ -3,7 +3,7 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"><![endif]-->
 <html>
     <head>
         <meta charset="utf-8">
@@ -11,15 +11,35 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="{% static "css/mystyle.css" %}"/>
     </head>
     <body>
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
         <h1>Here are your users:</h1>
+        <div>
+            {% if user_list %}
+              <table>
+                  <thead>
+                      <th>First Name</th>
+                      <th>Last Name</th>
+                      <th>Email Address</th>
+                  </thead>
+                  {% for entry in user_list %}
+                  <tr>
+                      <td>{{ entry.fname }}</td>
+                      <td>{{ entry.lname }}</td>
+                      <td>{{ entry.mail }}</td>
+                  </tr>
+                  {% endfor %}
+              </table>
+              {% else %}
+                  <p>No User list access. Table not created.</p>
+                {% endif %}
+        </div>
 
-        {{ user_list }}
+        
         
         <script src="" async defer></script>
     </body>
