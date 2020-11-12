@@ -18,7 +18,7 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
         <h1>Here are your users:</h1>
-        <div>
+        <!-- <div>
             {% if user_list %}
               <table>
                   <thead>
@@ -37,6 +37,20 @@
               {% else %}
                   <p>No User list access. Table not created.</p>
                 {% endif %}
+        </div> -->
+
+        <div>
+            {% if user_list %}
+                {% for entry in user_list %}
+                    <ul>
+                        <li>First name:  {{ entry.fname }}</li>
+                        <li>Last name:  {{ entry.lname }}</li>
+                        <li>Email Address:  {{ entry.mail }}</li>
+                    </ul>
+                {% endfor %}
+            {% else %}
+                <p>No User list access.  Table no created.</p>
+            {% endif %}
         </div>
 
         
