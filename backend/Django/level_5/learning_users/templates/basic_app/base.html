@@ -17,8 +17,14 @@
           <div class="container">
               <ul class="nav">
                   <li><a class="navbar-brand" href="{% url 'index' %}">HOME</a></li>
-                  <li><a class="nav-link" href="{% url 'admin:index' %}"></a></li>
+                  <li><a class="nav-link" href="{% url 'admin:index' %}">Admin Page</a></li>
                   <li><a class="nav-link" href="{% url 'basic_app:register' %}">Register</a></li>
+                  
+                  {% if user.is_authenticated %}
+                      <li><a class="nav-link" href="{% url 'logout' %}">Log Off</a></li>
+                  {% else %}
+                      <li><a class="nav-link" href="{% url 'basic_app:user_login' %}">Log In</a></li>
+                  {% endif %}
               </ul>
           </div>
       </nav>
