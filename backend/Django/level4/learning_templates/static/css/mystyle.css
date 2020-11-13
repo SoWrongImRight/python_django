@@ -1,0 +1,22 @@
+.nav a{
+    color:white;
+    font-weight: bolder;
+    background: linear-gradient(currentcolor,blue) bottom / 0 .1em no-repeat;
+    transition: .5s background-size;
+}
+.nav a:hover{
+    background-size: 80% .1em;
+}
+.navbar-brand a{
+    color:white;
+    font-weight: bolder;
+}
+.navbar{
+    background-color: black;
+}
+h1{
+    font-family: 'Fondamento', cursive;
+}
+h2{
+    font-family: 'Mali', cursive;
+}
