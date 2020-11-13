@@ -13,13 +13,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link rel="stylesheet" href="{% static "css/mystyle.css" %}">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Fondamento&family=Mali:ital,wght@1,300&display=swap" rel="stylesheet"> 
     </head>
     <body>
         
         <!-- Navbar -->
         <nav class = "navbar">
+            <nav class="navbar-brand nav-link"><a class="nav-link" href="{% url 'index' %}"><img src="{% static 'images/brand_img.jpg' %}" width="40" height="40" alt="Brand Image"></a></nav>
             <nav class="nav">
-                <a class="nav-link" href="{% url 'index' %}">BRAND</a>
                 <a class="nav-link" href="{% url 'basic_app:other' %}">Other Page</a>
                 <a class="nav-link" href="{% url 'admin:index' %}">Admin Page</a>
             </nav>
