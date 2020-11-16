@@ -1,7 +1,13 @@
+:root{
+    --bgcolor: rgb(37,162,230);
+    --txtcolor:white;
+}
+
+
 .nav a{
-    color:white;
+    color:var(--txtcolor);
     font-weight: bolder;
-    background: linear-gradient(currentcolor,blue) bottom / 0 .1em no-repeat;
+    background: linear-gradient(white,white) bottom / 0 .1em no-repeat;
     transition: .5s background-size;
 }
 .nav a:hover{
@@ -12,11 +18,18 @@
     font-weight: bolder;
 }
 .navbar{
-    background-color: black;
+    background-color: var(--bgcolor);
 }
 h1{
     font-family: 'Fondamento', cursive;
 }
 h2{
     font-family: 'Mali', cursive;
+}
+.main-container{
+    padding-top: 60px;
+}
+footer{
+    color: var(--txtcolor);
+    background-color: var(--bgcolor);
 }
