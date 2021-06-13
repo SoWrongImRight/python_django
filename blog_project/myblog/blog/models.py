@@ -26,7 +26,7 @@ class Post(models.Model):
   def __str__(self):
     return self.title
 
-class Comments(models.Model):
+class Comment(models.Model):
   post = models.ForeignKey('blog.Post', related_name='comments')
   author = models.CharField('max_lenght=200')
   text = models.TextField()
