@@ -1,6 +1,16 @@
+from django.contrib.auth.decorators import login_required
+from myblog.blog.forms import PostForm
 from django.shortcuts import render
-from blog.model import Post,Comment
-from.django.views.generic import (TemplateView,ListView
+from .models import Post,Comment
+from .forms import PostForm, CommentForm
+from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic import (TemplateView,
+                                  ListView,
+                                  DetailView,
+                                  CreateView,
+                                  UpdateView,
+                                  DeleteView,
 
 )
 # Create your views here.
@@ -13,3 +23,26 @@ class PostListView(ListView):
 
   def  get_queryset(self):
     return Post.objects.filter(published_date__lte=timezone.now().order_by('-published_date'))
+
+class PostDetailView(DetailView):
+  model = Post
+
+class CreatePostView(LoginRequiredMixin, CreateView):
+  login_url = '/login'
+  redirect_field_name = 'blog/post_detail.html'
+
+  form_class = PostForm
+
+  model = Post
+
+class PostUpdateView(LoginRequiredMixin, UpdateView):
+  login_url = '/login'
+  redirect_field_name = 'blog/post_detail.html'
+
+  form_class = PostForm
+
+  model = Post
+
+class PostDeletView(LoginRequiredMixin, DeleteView):
+  model = Post
+  success_url = reverse_lazy('post_list')
