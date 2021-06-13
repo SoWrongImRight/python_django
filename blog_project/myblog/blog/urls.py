@@ -9,5 +9,7 @@ URLPatterns = [
   path(r'^post/?p<pk>\d+)$'),views.PostDetailView.as_view(),name='post_detail'),
   path(r'^post/new/$',views.CreatePostView.as_view(),name='post_new'),
   path(r'^post/(?<pk>\d+)/edit/$',views.PostUpdateView.as_view(),name='post_edit')
+  path(r'^post/(?<pk>\d+)/remove/$', views.PostDeletView.as_view(),name = 'post/remove'),
+  path(r'^drafts/$',views.DraftListView.as_view(),name = 'post_draft_list'),
   
 ]
