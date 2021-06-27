@@ -15,10 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from blog import views
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path(r'',include('blogs.urls')),
+    path('accounts/login/$',views.login,name='login'),
+    path('accounts/logout/$',views.logout,name='logout',kwargs={'next_page':'/'})
     
 ]

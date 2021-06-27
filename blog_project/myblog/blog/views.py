@@ -1,6 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
-from myblog.blog.forms import PostForm
+from blog.forms import PostForm
 from django.shortcuts import render
 from .models import Post,Comment
 from .forms import PostForm, CommentForm
@@ -25,7 +25,7 @@ class PostListView(ListView):
   model = Post
 
   def  get_queryset(self):
-    return Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date'))
+    return Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
 
 class PostDetailView(DetailView):
   model = Post
