@@ -6,10 +6,10 @@
 
   {% if form.erros %}
   <p>Your username and password did not match, please try again.</p>
-  % endif %
+  {% endif %}
 
   <form action="{% url 'login' %}" method="POST">
-    % csrf_token % % form.as_p %
+    {% csrf_token %} {% form.as_p %}
     <input type="submit" class="btn btn-primary" value="Login" />
     <input type="hidden" name="next" value="{{next}}" />
   </form>
